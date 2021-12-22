@@ -9,3 +9,5 @@ hrs_total = hour + (min_total//60)
 end_hrs = hrs_total%24
 
 print("END TIME: "+str(end_hrs)+":"+str(end_min))
+
+input()
