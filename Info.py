@@ -1,0 +1,6 @@
+print("Hello, This is not a robot !")
+firstNanme = input("What is your first name? ")
+secName = input("What is your second name? ")
+location = input("What is your current location ? ")
+age = input("What is your age? ")
+print("Hi "+firstNanme+secName+"! "+"Your current location is "+location+" and you are "+age+" years of age")
