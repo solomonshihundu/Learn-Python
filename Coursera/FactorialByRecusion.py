@@ -8,4 +8,4 @@ def factorial(n):
     return result
 
 
-print(factorial(4))
+print(factorial(999))

@@ -5,6 +5,6 @@ def sum_postivite_numbers(n):
     
     return n + sum_postivite_numbers(n - 1)
 
-print(sum_postivite_numbers(3))    
-print(sum_postivite_numbers(5))  
-print(sum_postivite_numbers(6))    
+print(sum_postivite_numbers(3))  #6  
+print(sum_postivite_numbers(5))  #15
+print(sum_postivite_numbers(6))  #21 
