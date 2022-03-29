@@ -11,6 +11,7 @@ while True:
     file.write(newItem+"\n")
 file.close #release memory resources
 
+
 file = open("devices.txt","r")#opens the file in read mode
 for item in file:
     item = item.strip()
