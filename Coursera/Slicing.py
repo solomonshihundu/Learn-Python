@@ -1,0 +1,9 @@
+name ="Solomon"
+print(name[:])      #Solomon
+print(name[1:3])    #ol
+print(name[2:4])    #lo
+print(name[4:7])    #mon
+print(name[5:6])    #o
+print(name[5:7])    #on
+print(name[2:-1])   #lomo
+print(name[3:-3])   #o
