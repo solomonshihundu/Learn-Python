@@ -5,3 +5,5 @@ def full_mails(people):
     return result
 
 print(full_mails([("s@gmail.com","Solomon"),("jk@gmail.com","Jonny Kage")]))
+
+#['Solomon <s@gmail.com>', 'Jonny Kage <jk@gmail.com>']
