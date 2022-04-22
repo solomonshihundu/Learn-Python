@@ -8,3 +8,5 @@ class Person:
 some_person = Person("Solomon") 
 # Call the greeting method
 print(some_person)
+
+help(Person)
