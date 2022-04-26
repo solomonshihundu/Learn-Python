@@ -120,7 +120,7 @@ for connection in range(20):
     l.add_connection(connection)
 print(l)
 
-#print(l.avg_load())
+print(l.avg_load())
 
 ########################################################################################
 
