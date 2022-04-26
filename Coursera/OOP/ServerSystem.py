@@ -31,13 +31,16 @@ class Server:
     
 #End Portion 1#
 
-server = Server()
-server.add_connection("192.168.1.1")
-print(server.load())
+########################################################################################
+#Testing Server
+#server = Server()
+#server.add_connection("192.168.1.1")
+#print(server.load())
 
-server.close_connection("192.168.1.1")
-print(server.load())
+#server.close_connection("192.168.1.1")
+#print(server.load())
 
+########################################################################################
 #Begin Portion 2#
 class LoadBalancing:
     def __init__(self):
@@ -52,7 +55,10 @@ class LoadBalancing:
         self.connections[connection_id] = server
 
         # Add the connection to the server
+        #print("Connection ID : {conn_id}".format(conn_id = connection_id))
         server.add_connection(connection_id)
+
+        self.ensure_availability()
 
     def close_connection(self, connection_id):
         """Closes the connection on the the server corresponding to connection_id."""
@@ -69,18 +75,23 @@ class LoadBalancing:
         """Calculates the average load of all servers"""
         # Sum the load of each server and divide by the amount of servers
         total_load = 0
-        count = 0
+        server_count = len(self.servers)
+        #print("Number of Servers is: {no_servers}".format(no_servers = server_count))
         avg = 0
         for server in self.servers:
-            total_load += server.load()  
-            count += 1     
+            total_load += server.load()      
         
-        avg = total_load/count
+        avg = total_load/server_count
         return avg
 
     def ensure_availability(self):
         """If the average load is higher than 50, spin up a new server"""
         
+        #print("Availability : {my_load}".format(my_load = self.avg_load()))
+        #print(type(self.avg_load))
+        
+        if self.avg_load() > 50:
+            self.servers.append(Server())
 
     def __str__(self):
         """Returns a string with the load for each server."""
@@ -88,20 +99,29 @@ class LoadBalancing:
         return "[{}]".format(",".join(loads))
 #End Portion 2#
 
+########################################################################################
+#Testing Load Balancer
+
 l = LoadBalancing()
 l.add_connection("fdca:83d2::f20d")
 print("Avg Load: {avg_load:.2f}".format(avg_load = l.avg_load()))
 
+#l.add_connection("fdca:83d2::f2")
+#print("Avg Load: {avg_load:.2f}".format(avg_load = l.avg_load()))
+
 l.servers.append(Server())
-print(l.avg_load())
+print("Avg Load with More Server: {avg_load:.2f}".format(avg_load = l.avg_load()))
 
-l.close_connection("fdca:83d2::f20d")
-print(l.avg_load())
+#l.close_connection("fdca:83d2::f20d")
+#print(l.avg_load())
 
+print("Adding connections")
 for connection in range(20):
     l.add_connection(connection)
 print(l)
 
-print(l.avg_load())
+#print(l.avg_load())
+
+########################################################################################
 
 
